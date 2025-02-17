@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController; //menggunakan ItemController untuk menangani permintaan terkait item
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); //menampilkan halaman welcome.blade.php saat pengguna mengakses URL utama "/"
 });
+
+Route::resource('items', ItemController::class); //membuat rute CRUD otomatis untuk resource 'items'
